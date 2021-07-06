@@ -5,16 +5,16 @@ import javax.persistence.Transient;
 import javax.persistence.Column;
 
 @Entity
-@Table(name="People")
+//@Table(name="People")
 public class Job //Job bean or class
 {
 	@Id
 	private int id;
 	@Column
 	private String fname;
-	@Transient
+//	@Transient
 	private String lname;
-	@Column(name="departName")
+//	@Column(name="departName")
 	private String department;
 	private double salary;
 	
@@ -48,6 +48,11 @@ public class Job //Job bean or class
 	}
 	public double getSalary(){
 		return salary;
+	}
+	
+	@Override
+	public String toString(){
+		return "Job[ ID: " +id+ ", First Name: " +fname+ ", Last Name: " +lname+ ", Department: " +department+ ", Salary: " +salary+ "]";
 	}
 	
 }
