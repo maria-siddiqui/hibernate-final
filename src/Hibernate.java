@@ -9,24 +9,24 @@ public class Hibernate {
 	public static void main(String[] args){
 		
 		Job person = new Job();
-		
-//		person.setId(90); 
-//		person.setFname("Muhammad");
-//		person.setLname("Usman");
-//		person.setDepartment("Engineering");
-//		person.setSalary(66000);
+		PersonName n = new PersonName();
+		n.setFname("Muhammad");
+		n.setMname("Affan");
+		n.setLname("Siddiqui");
+		person.setName(n);
+		person.setId(10); 
+		person.setDepartment("Business");
+		person.setSalary(65000);
 		
 		Configuration config = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Job.class);
-//		ServiceRegistry reg = new SessionFactoryServiceRegistryBuilderImpl()
-//				.applySettings(config.getProperties()).buildServiceRegistry();
+//		ServiceRegistry reg = new ServiceRegistryBuilderImpl().applySettings(config.getProperties()).buildServiceRegistry();
 		SessionFactory sf = config.buildSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
-//		session.save(person); //saving data in database
-		person=(Job)session.get(Job.class, 70); //fetching data from database
+		session.save(person); //saving data in database
+//		person=(Job)session.get(Job.class, 70); //fetching data from database
 		tx.commit();
 		System.out.println(person);
-		
+//		System.out.println(n);		
 	}
-
 }
