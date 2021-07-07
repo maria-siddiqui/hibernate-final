@@ -10,11 +10,11 @@ public class Hibernate {
 		
 		Job person = new Job();
 		
-//		person.setId(50); 
-//		person.setFname("Huma");
-//		person.setLname("Karim");
-//		person.setDepartment("Admin");
-//		person.setSalary(45000);
+//		person.setId(90); 
+//		person.setFname("Muhammad");
+//		person.setLname("Usman");
+//		person.setDepartment("Engineering");
+//		person.setSalary(66000);
 		
 		Configuration config = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Job.class);
 //		ServiceRegistry reg = new SessionFactoryServiceRegistryBuilderImpl()
@@ -22,8 +22,8 @@ public class Hibernate {
 		SessionFactory sf = config.buildSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
-		session.save(person);
-		person=(Job)session.get(Job.class, 50);
+//		session.save(person); //saving data in database
+		person=(Job)session.get(Job.class, 70); //fetching data from database
 		tx.commit();
 		System.out.println(person);
 		
